@@ -1,0 +1,46 @@
+version: '3'
+services:
+  #redis
+  redis:
+    image: redis:alpine
+    container_name: glukyevaluation-redis
+
+  # The Database
+  database:
+    image: mysql:5.7
+    container_name: glukyevaluation-mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=glukyevaluation
+      - MYSQL_USER=glukyevaluation
+      - MYSQL_PASSWORD=GLuk7E3V24L
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+
+  # The Application
+  app:
+    build: phpdocker/php-fpm
+    container_name: glukyevaluation-appphp
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      - ./phpdocker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/php.ini
+    environment:
+      - DB_PORT=3306
+      - DB_HOST=database
+      - REDIS_HOST=redis
+
+  # The Web Server
+  webserver:
+    build: phpdocker/nginx
+    container_name: glukyevaluation-webserver
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    ports:
+      - "80:80"
+      - "443:443"
+volumes:
+  dbdata:

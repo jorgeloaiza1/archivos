@@ -1,0 +1,253 @@
+VERSION 2 Glüky Evaluation
+
+
+======================
+
+TODO:
+
+V1: 
+- load master data + check relationships - OK
+- constants for evaluation scale - OK
+- login with google - OK
+- load evaluations for the user - OK
+- load evaluation - OK
+	- functions + additional observations - OK
+	- proficiency + additional observations - OK
+- save evaluation + validate if the user has the permission - OK
+- prevent back functionality - OK
+- weight functions (70% Boss 30% auto - 1 red <= 2 yellow <= 3 green) - OK
+- update evaluation - feedback - OK
+- action to close evaluation - OK
+- history back - OK
+- load master data - OK
+
+V2:
+- admin layout - OK
+- crud layout - OK
+- add timestamp field to models in migration file - OK
+	allowed_accounts, functions, skills, skills_levels, evaluators
+- add evaluation id to current models and controllers (relationship) - OK
+	evaluators, functions, skills, skills_levels 
+- master data interface - OK
+	allowed_accounts, evaluations, functions, skills, skills_levels, evaluators, evaluation_user (R)
+- JobTitle entity - OK
+- integrate old version report - OK
+- validate admin functions into evaluation - OK
+- add evaluation interface and change the reports view - OK
+- create view into the home to select the evaluation to fill out. - OK
+- validate evaluation id parameter in HomeController into user interface - OK
+- create rol and menu for human resource profile - OK
+- load evaluation 2 - OK
+	- skills_levels - OK
+	- skills - OK
+	- functions - OK
+	- evaluators - OK
+	- allowed users - OK
+
+V3:
+
+- change entities fields in admin where a relationship exists (BREAD CONFIGURATION) - Validate view order 
+	- AllowedAccounts - JobTitle - OK
+	- Functions - JobTitle, Order (Number) - Ok
+	- Skills - Order (Number) - OK
+	- SkillsLevels - Goal (Number) - OK
+	- Evaluators - JobTitle, weight(Number %) - OK
+- overwrite users view to edit and view data. - OK
+
+
+
+- add control and variable to set the evaluation id for the current views and controllers.
+- overwrite home route (dashboard)
+
+
+- Production environment:
+	- run migrate
+	- install voyager
+	- sync voyager tables (data_rows, data_types, menu_items, menus, permission_role, permissions, roles, settings, user_roles)
+	- add user with admin role and is-admin flag enabled
+
+Commands:
+ - docker-compose up -d
+ - docker-compose exec app php artisan key:generate
+ - docker-compose exec app php artisan optimize
+ - docker-compose exec app php artisan migrate --seed
+ - docker-compose exec app php artisan tinker
+
+
+SETUP:
+php artisan voyager:install
+php artisan migrate
+php artisan migrate:refresh --seed
+php artisan db:seed --class=UsersTableSeeder
+ 
+
+SQL TEST:
+- users and functions
+select * from evaluators where user_id not in (select id from allowed_accounts)
+union 
+select * from evaluators where evaluator_id not in (select id from allowed_accounts);
+-- job_title and functions
+select distinct * from evaluators where user_job_title not in (select distinct job_title from functions);
+-- skills
+select * from skills_levels where type not in (select type from skills);
+-- data skills
+select  
+ 	evaluators.evaluator_id,
+	evaluators.evaluator_name,
+ 	evaluators.evaluation_type,
+ 	evaluators.weight, 	 	
+ 	evaluation_skills.skill, 
+	evaluation_skills.value,
+	evaluation_skills.description
+from evaluation_skills
+inner join users
+on evaluation_skills.user_document_evaluated = '1017160943' AND evaluation_skills.user_id = users.id
+inner join evaluators
+on evaluators.evaluator_id = users.document and evaluation_skills.user_document_evaluated = evaluators.user_id
+-- where evaluation_skills.skill <> 'observaciones'
+order by skill;
+
+
+SSL:
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
+
+-- server
+ssh root@104.236.67.99
+ssh root@tuatu.soybrainup.com
+
+//mysql -u gevaluation -p 63V0lut10n.2017
+//use gevaluation;
+
+-- admin
+gevaluation@gluky.co
+G3VAlUAt130nM
+
+-- gestion humana
+happyevaluation@gluky.co
+G3VAlUAt130nM
+
+
+Migration: (add evaluation_id)
+- evaluation_functions
+- evaluation_skills
+- evaluation_user
+- evaluators
+- feedback
+- feedbackcontrol
+
+
+--------------------
+-- SQL UPDATE DOMAIN
+
+update allowed_accounts
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.co' IN email)), 'gluky.com')
+where email like '%@gluky.co';
+
+update allowed_accounts
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.co ' IN email)), 'gluky.com')
+where email like '%@gluky.co ';
+
+update allowed_accounts
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.cl' IN email)), 'gluky.com')
+where email like '%@gluky.cl';
+
+update allowed_accounts
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.mx' IN email)), 'gluky.com')
+where email like '%@gluky.mx';
+
+update allowed_accounts
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.cr' IN email)), 'gluky.com')
+where email like '%@gluky.cr';
+
+
+
+update users
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.co' IN email)), 'gluky.com')
+where email like '%@gluky.co';
+
+update users
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.co ' IN email)), 'gluky.com')
+where email like '%@gluky.co ';
+
+update users
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.cl' IN email)), 'gluky.com')
+where email like '%@gluky.cl';
+
+update users
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.mx' IN email)), 'gluky.com')
+where email like '%@gluky.mx';
+
+update users
+set email = CONCAT(SUBSTRING(email, 1, POSITION('@gluky.cr' IN email)), 'gluky.com')
+where email like '%@gluky.cr';
+
+---------
+-- search
+select id,email,names, SUBSTRING(email, 1, POSITION('@gluky.co' IN email)) AS username, CONCAT(SUBSTRING(email, 1, POSITION('@gluky.co' IN email)), 'gluky.com') as new_email
+from `allowed_accounts` 
+where email like '%@gluky.co';
+select id,email,name, SUBSTRING(email, 1, POSITION('@gluky.co' IN email)) AS username, CONCAT(SUBSTRING(email, 1, POSITION('@gluky.co' IN email)), 'gluky.com') as new_email
+from `users` 
+where email like '%@gluky.co';
+
+
+update users as US
+inner join allowed_accounts as AC 
+ON AC.id = US.document
+set US.email = AC.email;
+
+select US.email, AC.email,AC.id, US.document
+from users as US
+inner join allowed_accounts as AC 
+ON AC.id = US.document;
+
+
+---
+conocimiento -> actitud
+comunicación -> velocidad
+liderazgo -> transformación
+
+
+-- 9 box query
+
+-- 1st question
+select
+EV.evaluator_id,
+EV.evaluator_name,
+EF.user_document_evaluated,
+EV.user_name,
+EF.value
+from evaluation_functions EF
+inner join evaluators EV
+ON EV.user_id = EF.user_document_evaluated AND EV.evaluation_id = 5 AND EV.evaluation_type = 'Jefe'
+inner join users US
+on US.document = EV.evaluator_id AND US.id = EF.user_id
+where EF.evaluation_id = 5
+and EF.function_id IN (select id from functions
+where evaluation_id = 5 and `order` = 0)
+order by EV.evaluator_id ASC, EF.user_document_evaluated ASC;
+
+
+
+-- All questions
+select
+EV.evaluator_id,
+EV.evaluator_name,
+EF.user_document_evaluated,
+EV.user_name,
+SUM(EF.value)/3 as average
+from evaluation_functions EF
+inner join evaluators EV
+ON EV.user_id = EF.user_document_evaluated AND EV.evaluation_id = 5 AND EV.evaluation_type = 'Jefe'
+inner join users US
+on US.document = EV.evaluator_id AND US.id = EF.user_id
+where EF.evaluation_id = 5
+and EF.function_id <> 1 AND EF.function_id NOT IN (select id from functions
+where evaluation_id = 5 and `order` = 0)
+group by 
+EV.evaluator_id,
+EV.evaluator_name,
+EF.user_document_evaluated,
+EV.user_name
+order by EV.evaluator_id ASC, EF.user_document_evaluated ASC;

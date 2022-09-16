@@ -1,0 +1,16 @@
+tipo,descripcion,tipo_cargo,valor_esperado,evaluation_id
+conocimiento,Conocimiento,operativos,3.00,2
+comunicacion,Comunicación,operativos,2.00,2
+relaciones,Relaciones Interpersonales,operativos,3.00,2
+liderazgo,Liderazgo,operativos,0.00,2
+resultados,Orientación a Resultados,operativos,3.00,2
+conocimiento,Conocimiento,misionales,4.00,2
+comunicacion,Comunicación,misionales,3.00,2
+relaciones,Relaciones Interpersonales,misionales,3.00,2
+liderazgo,Liderazgo,misionales,3.00,2
+resultados,Orientación a Resultados,misionales,4.00,2
+conocimiento,Conocimiento,estrategicos,5.00,2
+comunicacion,Comunicación,estrategicos,4.00,2
+relaciones,Relaciones Interpersonales,estrategicos,4.00,2
+liderazgo,Liderazgo,estrategicos,5.00,2
+resultados,Orientación a Resultados,estrategicos,5.00,2

@@ -1,0 +1,26 @@
+competencia,tipo,orden,descripcion,evaluation_id
+CONOCIMIENTO,conocimiento,1,"Conozco el proceso y las funciones de mi cargo, sé cuáles son mis responsabilidades.",2
+CONOCIMIENTO,conocimiento,2,Conozco mis funciones y responsabilidades y lo aplico en el día a día.,2
+CONOCIMIENTO/DINAMISMO,conocimiento,3,"Aplico el conocimiento en mi cargo día a día, lo analizo y busco soluciones constantemente.",2
+CONOCIMIENTO/DINAMISMO,conocimiento,4,Transmito conocimiento y soy un referente en los temas de mi área con mi equipo  y con las demás áreas.,2
+CONOCIMIENTO/DINAMISMO/INNOVACIÓN,conocimiento,5,"Busco constantemente cómo innovar, transmitir ideas y mejorar procesos que permitan mejorar el resultado.  ",2
+COMUNICACIÓN/FAMILIA,comunicacion,1,"Doy a conocer mis opiniones en el momento oportuno, de la mejor forma y sin faltar el respeto.",2
+COMUNICACIÓN/FAMILIA,comunicacion,2,"Escucho los argumentos de los otros así no esté de acuerdo, los respeto y no lo cuestiono.",2
+COMUNICACIÓN/FAMILIA,comunicacion,3,"Busco integrar opiniones para llegar a un punto medio, me gusta que todos queden tranquilos frente al tema tratado.",2
+COMUNICACIÓN/FAMILIA,comunicacion,4,"Me comunico oportunamente con los demás Glükers, tengo en cuenta sus opiniones, las respeto y llego a acuerdos.",2
+COMUNICACIÓN/FAMILIA,comunicacion,5,"Busco soluciones constantemente y tengo la capacidad de convencer a otros con mis argumentos cuando tengo la razón, integrando las opiniones y siendo oportuno. ",2
+RELACIONES INTERPERSONALES/FAMILIA/ACTITUD,relaciones,1,"Me relaciono con los Glükers y todas las personas desde el respeto y la cordialidad, sin embargo, prefiero no generar vínculos.",2
+RELACIONES INTERPERSONALES/FAMILIA/ACTITUD,relaciones,2,Disfruto trabajar en equipo y  reconozco que mi trabajo impacta el de los demás Glükers.,2
+RELACIONES INTERPERSONALES/FAMILIA/ACTITUD,relaciones,3,"Demuestro un interés genuino hacia los Glükers y demás personas, también ante opiniones e ideas; me gusta compartir con el otro.",2
+RELACIONES INTERPERSONALES/FAMILIA/ACTITUD,relaciones,4,"Soy un Glüker que inspira, soy ejemplo a seguir y trabajo día a día para mejorar.",2
+RELACIONES INTERPERSONALES/FAMILIA/ACTITUD,relaciones,5,Tengo la capacidad de entender y ponerme en el lugar del otro sin perder la objetividad de las decisiones ni la empatía.,2
+LIDERAZGO DE PERSONAS/ACTITUD,liderazgo,1,"Soy un referente seguir por parte del equipo, sin embargo, no me involucro en las tareas operativas.",2
+LIDERAZGO DE PERSONAS/ACTITUD,liderazgo,2,"Motivo y enseño a los demás,  pero no los acompaño en el día a día.",2
+LIDERAZGO DE PERSONAS/ACTITUD,liderazgo,3,"Movilizo, hago seguimiento y estoy dispuesto a enseñar a los demás. ",2
+LIDERAZGO DE PERSONAS/ACTITUD,liderazgo,4,"Genero pasión, transmito energía e inspiro confianza. ",2
+LIDERAZGO DE PERSONAS/ACTITUD,liderazgo,5,"Me gusta trabajar en equipo, ser parte de la ejecución para llegar al logro y delego responsabilidades cuando se requiera y busco desarrollar con pasión y dinamismo. ",2
+ORIENTACION A RESULTADOS/DINAMISMO/INNOVACIÓN,resultados,1,Cumplo con las metas establecidas para mi cargo sin enfocarme en la calidad del trabajo.,2
+ORIENTACION A RESULTADOS/DINAMISMO/INNOVACIÓN,resultados,2,Disfruto mi trabajo y me limito a los lineamientos establecidos Glüky.,2
+ORIENTACION A RESULTADOS/DINAMISMO/INNOVACIÓN,resultados,3, Organizo mi tiempo y tareas para ser productivo y hacer entregas con calidad.,2
+ORIENTACION A RESULTADOS/DINAMISMO/INNOVACIÓN,resultados,4,"Soy dinámico, promuevo el desarrollo y disfruto de trabajar en proyectos de innovación de mi área y de otras áreas.",2
+ORIENTACION A RESULTADOS/DINAMISMO/INNOVACIÓN,resultados,5,"Doy más de lo que la empresa espera ,me gusta dar valor agregado a mí área y en general a la empresa. ",2
